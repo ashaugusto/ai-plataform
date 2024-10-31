@@ -1,16 +1,19 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
-  images: { unoptimized: true },
-  typescript: {
-    ignoreBuildErrors: true
+  images: {
+    unoptimized: true,
   },
-  eslint: {
-    ignoreDuringBuilds: true
-  },
+  output: 'standalone',
   experimental: {
-    forceSwcTransforms: true
-  }
-};
+    forceSwcTransforms: true,
+  },
+  webpack: (config) => {
+    config.resolve.fallback = {
+      ...config.resolve.fallback,
+      fs: false,
+    };
+    return config;
+  },
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig
