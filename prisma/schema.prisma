@@ -16,6 +16,7 @@ model User {
   status        UserStatus    @default(ACTIVE)
   createdAt     DateTime      @default(now())
   updatedAt     DateTime      @updatedAt
+  supportTickets SupportTicket[]
   lastLoginAt   DateTime?
   jobAnalyses   JobAnalysis[]
   subscriptions Subscription[]
