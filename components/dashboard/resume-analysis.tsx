@@ -1,0 +1,1 @@
+export { ResumeAnalysis } from "./resume-analysis-component";
